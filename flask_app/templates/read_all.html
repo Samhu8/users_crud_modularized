@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users CR</title>
+</head>
+<style>
+    body{
+        margin: 0px auto;
+        padding: 0px;
+        text-align: center;
+    }
+    table, thead, tr, th, td {
+        margin: 0px auto;
+        margin-bottom: 20px;
+        padding: 3px;
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+    <h1>All Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for one_user in users %}
+                <tr>
+                    <td>{{one_user.id}}</td>
+                    <td>{{one_user.first_name}}</td>
+                    <td>{{one_user.last_name}}</td>
+                    <td>{{one_user.email}}</td>
+                    <td>{{one_user.created_at}}</td>
+                    <td><a href="/one_user/{{one_user.id}}">Show</a> | <a href="/update_user/{{one_user.id}}">Edit</a> | <a href="/delete/{{one_user.id}}">Delete</a></td>
+            {% endfor %}
+                </tr>
+        </tbody>
+    </table>
+
+    <a href="/create_user">Create a New User</a>
+
+
+</body>
+</html>
